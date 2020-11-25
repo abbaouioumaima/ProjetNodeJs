@@ -18,8 +18,11 @@ let schoolSchema = new Schema({
         type: String,
         required: "the description is required "
     },
+    nombre_participant: {
+        type: Number
+    },
     admin_id: {
-        type: String,
+        type: String
     },
     users_id: {
         type: Array,
