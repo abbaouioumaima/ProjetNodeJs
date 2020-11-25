@@ -17,4 +17,7 @@ schoolRoute(server);
 const userRoute = require('./api/routes/userRoute');
 userRoute(server);
 
+const appRoute = require('./api/routes/appRoute');
+appRoute(server);
+
 server.listen(port, hostname);

@@ -1,3 +1,5 @@
+const { user } = require('osenv');
+
 module.exports = (server) => {
     const userController = require('../controllers/userController');
 
@@ -12,6 +14,9 @@ module.exports = (server) => {
     server.route('/users/register')
         .post(userController.create_an_user);
 
-    server.route('/users/login') // req.params.user_id
+    server.route('/users/register/:user_id')
+        .put(userController.validate_application);
+
+    server.route('/users/login')
         .post(userController.login_an_user);
 }

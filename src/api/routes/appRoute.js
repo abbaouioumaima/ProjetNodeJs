@@ -3,4 +3,11 @@ module.exports = (server) => {
 
     server.route('/apps')
         .get(appController.list_all_apps);
+
+    server.route('/apps/school/:school_id')
+        .get(appController.list_apps_from_school);
+    
+    server.route('/school/:school_id/user/:user_id')
+        .post(appController.create_an_app)
+        .get(appController.get_an_app);
 }

@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 let appSchema = new Schema({
     user_id: {
         type: String,
-        required: "L'email est requis"
+        required: "L'id user est requis"
     },
     school_id: {
         type: String,
-        required: "Le nom est requis"
+        required: "L'id school est requis"
     },
     experience: {
         type: String,
@@ -16,7 +16,7 @@ let appSchema = new Schema({
     },
     motivation: {
         type: String,
-        required: "La lettre de motivation est requise"
+        required: "La lettre de motivation est requise."
     }
 });
 

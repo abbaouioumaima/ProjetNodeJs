@@ -120,3 +120,18 @@ exports.login_an_user =  async (req, res) => {
         }
     })
 }
+
+exports.validate_application = (req, res) => {
+    User.findByIdAndUpdate(req.params.user_id, {registered: true}, {new: true}, (error, user) => {
+        if(error)   {
+            res.status(500);
+            console.log(error);
+            res.json({message: "Erreur serveur."})
+        }
+        else{
+            res.status(200);
+            res.json(user)
+            
+        }
+    })
+}

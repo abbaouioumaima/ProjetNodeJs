@@ -20,7 +20,10 @@ let userSchema = new Schema({
         required: "Le rôle est requis"
     },
     school_id: {
-        type: String,
+        type: String
+    },
+    registered: {
+        type: Boolean
     }
 });
 
