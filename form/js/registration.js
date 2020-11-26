@@ -1,24 +1,4 @@
-/*$("#register-Form").submit(function(e){
-    e.preventDefault(); 
-    var form_url = $(this).attr("action"); 
-    var form_method = $(this).attr("method");
-    var form_data = $(this).serialize(); 
-    $.ajax({
-      url : form_url,
-      type: form_method,
-      data : form_data
-    }).done(function(response){ 
-      $("#res").html(response);
-    });
-  });*/
 
-  /*function submitForm(form){
-    var url = form.attr("action");
-    var formData = $(form).serializeArray();
-    $.post(url, formData).done(function (data) {
-        alert(data);
-    });
-}*/
 
 $('#register-form').submit(function(e) {
     e.preventDefault();
