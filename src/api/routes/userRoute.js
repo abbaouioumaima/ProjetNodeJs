@@ -1,4 +1,3 @@
-const { user } = require('osenv');
 
 module.exports = (server) => {
     const userController = require('../controllers/userController');
