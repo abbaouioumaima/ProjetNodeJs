@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title></title>
+	<title>Contact V12</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -32,30 +32,42 @@
 
 				<form class="contact100-form validate-form">
 					<span class="contact100-form-title">
-						Welcome to Hackathon , Please fill the following form for applying to the competition  
+						Drop your Project 
 					</span>
 
-				
+					<div class="wrap-input100 validate-input" data-validate = "Title is required">
+						<input class="input100" type="text" name="title" placeholder="Title" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-hashtag" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					
 
 					<div class="wrap-input100 validate-input" data-validate = "Description is required">
-						<textarea class="input100" name="experience" placeholder="Tell us a little bit about your experiences" required></textarea>
+						<textarea class="input100" name="description" placeholder="Description" required></textarea>
 						<span class="focus-input100"></span>
 					</div>
 			
-					<div class="wrap-input100 validate-input" data-validate = "Description is required">
-						<textarea class="input100" name="experience" placeholder="What motivates you" required></textarea>
+					<div class="wrap-input100 validate-input" data-validate = "The nummber is required ">
+						<input class="input100" type="text" name="number" placeholder="The number of Participants " required>
 						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-users" aria-hidden="true"></i>
+						</span>
 					</div>
+
 
 					<div class="container-contact100-form-btn">
 						<button class="contact100-form-btn">
 							Send
 						</button>
-                    </div>
-                    
-                    <div class="container-contact100-form-btn">
+					</div>
+					<div class="container-contact100-form-btn">
 						<button class="contact100-form-btn">
-                            <a href="connexion.html"> Logout</a>
+							
+							<a href="connexion.html"> Logout</a>
 						</button>
 					</div>
 				</form>
