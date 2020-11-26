@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 server.use(bodyParser.urlencoded());
 server.use(bodyParser.json());
 server.use(cors());
+
 const schoolRoute = require('./api/routes/schoolRoute');
 schoolRoute(server);
 
