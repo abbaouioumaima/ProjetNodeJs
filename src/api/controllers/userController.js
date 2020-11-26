@@ -111,7 +111,8 @@ exports.login_an_user =  async (req, res) => {
             })
         } else {
             if(bcrypt.compare(req.body.password, user.password)) {
-                res.json({message: "Vous êtes connecté"});        
+                res.status(201);
+                res.json(user);        
             } else {
                 res.status(400);
                 console.log(error);
