@@ -32,13 +32,27 @@ exports.create_a_school= (req, res) => {
         } else {
             res.status(201);
             res.json(school)
-
         }
     })
 }
 
 exports.get_a_school = (req, res) => {
     School.findById(req.params.school_id, (error, school) => {
+        if (error) {
+            res.status(500);
+            console.log(error);
+            res.json({
+                message: "Erreur serveur."
+            })
+        } else {
+            res.status(200);
+            res.json(school)
+        }
+    })
+}
+
+exports.get_a_school_by_name = (req, res) =>   {
+    School.find({school_name: req.params.school_name}, (error, school) => {
         if (error) {
             res.status(500);
             console.log(error);

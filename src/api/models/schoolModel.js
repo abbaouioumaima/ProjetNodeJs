@@ -4,19 +4,18 @@ const Schema = mongoose.Schema;
 let schoolSchema = new Schema({
     school_name: {
         type: String,
-        required: "the school name is required "
+        required: "the school name is required ",
+        unique: true
     },
     location: {
         type: String,
         required: "the location is required "
     },
     project_title: {
-        type: String,
-        required: "the title is required "
+        type: String
     },
     project_description: {
-        type: String,
-        required: "the description is required "
+        type: String
     },
     nombre_participant: {
         type: Number

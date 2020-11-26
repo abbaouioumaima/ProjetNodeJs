@@ -33,7 +33,7 @@ function login()    {
 
 function checkrole()    {
     if(sessionStorage.getItem("role") == "admin")  {
-        window.location.href = "listApplications.html";
+        window.location.href = "dropProject.html";
     } else {
         window.location.href = "application.html";
     }
