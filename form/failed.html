@@ -31,36 +31,18 @@
 				</div>
 
 				<form class="contact100-form validate-form" id="form-project">
-					<span class="contact100-form-title">
-						Drop your Project 
-					</span>
-
-					<div class="wrap-input100 validate-input" data-validate = "Title is required">
-						<input class="input100" type="text" name="title" id="title" idplaceholder="Title" required>
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-hashtag" aria-hidden="true"></i>
-						</span>
-					</div>
-
-					
-
-					<div class="wrap-input100 validate-input" data-validate = "Description is required">
-						<textarea class="input100" name="description" id="description" placeholder="Description" required></textarea>
-						<span class="focus-input100"></span>
-					</div>
-			
-					<div class="wrap-input100 validate-input" data-validate = "The number is required ">
-						<input class="input100" type="text" name="number" id="number" placeholder="The number of Participants " required>
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-users" aria-hidden="true"></i>
-						</span>
-					</div>
-
-
-					<div class="container-contact100-form-btn">
-						<input type="submit" class="contact100-form-btn" value="Send">
+				
+                    <div class="centrer">
+                       Sorry, Your school has not participated yet .</br>
+                       We invite you to try later.</p>
+                      </div>
+                      <div class="container-contact100-form-btn">
+						<button class="contact100-form-btn">
+							<script>  
+								sessionStorage.clear(); 
+					       </script>
+							<a href="connexion.html"> Back to the login page</a>
+						</button>
 					</div>
 					
 				</form>
@@ -94,6 +76,5 @@
   gtag('config', 'UA-23581568-13');
 </script>
 
-<script src="js/dropProject.js"></script>
 </body>
 </html>
