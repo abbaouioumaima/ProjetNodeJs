@@ -1,3 +1,4 @@
+
 $('#login-form').submit(function(e) {
     e.preventDefault();
     login();
@@ -32,10 +33,60 @@ function login()    {
     });
 }
 
-function checkrole()    {
-    if(sessionStorage.getItem("role") == "admin")  {
-        window.location.href = "dropProject.html";
-    } else {
-        window.location.href = "application.html";
-    }
-}
+
+ function checkrole()    {
+            if(sessionStorage.getItem("role") == "admin")  {
+                
+                $.ajax({
+                    url : 'http://127.0.0.1:3000/schools/'+sessionStorage.getItem("schoolid"),
+                    type : 'GET',
+                
+                success : function(res){
+                      
+                    if(res.project_title == undefined || res.project_description == undefined){
+                        
+                        window.location.href = "dropProject.html";
+                    }
+                    
+                    else{
+
+                       
+                        window.location.href = "listApplications.html";
+                        
+                    }
+
+                },
+                error: function(e) {
+                    console.log(e);
+                    alert("Wrong password or username !")
+                }
+                })
+                
+            } else {
+                $.ajax({
+                    url : 'http://127.0.0.1:3000/schools/'+sessionStorage.getItem("schoolid"),
+                    type : 'GET',
+                
+                success : function(res){
+                      
+                    if(res.project_title == undefined || res.project_description == undefined){
+                        
+                        window.location.href = "failed.html";
+                    }
+                    
+                    else{
+ 
+                        window.location.href = "application.html";
+                        
+                    }   
+
+                },
+                error: function(e) {
+                    console.log(e);
+                    alert("Wrong password or username !")
+                }
+               })
+ 
+            }
+
+        }

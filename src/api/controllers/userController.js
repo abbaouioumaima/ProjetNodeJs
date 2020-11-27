@@ -80,7 +80,8 @@ exports.create_an_user = async (req, res) => {
             email: req.body.email,
             lastname: req.body.lastname,
             password: hashpassword,
-            role: req.body.role
+            role: req.body.role,
+            school_id: req.body.school_id
         })
         user.save((error, user) => {
             if (error) {
