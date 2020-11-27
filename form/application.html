@@ -30,7 +30,7 @@
 					<img src="style/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="contact100-form validate-form">
+				<form class="contact100-form validate-form" id="app-form" method="POST">
 					<span class="contact100-form-title">
 						Welcome to Hackathon , Please fill the following form for applying to the competition  
 					</span>
@@ -38,19 +38,19 @@
 				
 
 					<div class="wrap-input100 validate-input" data-validate = "Description is required">
-						<textarea class="input100" name="experience" placeholder="Tell us a little bit about your experiences" required></textarea>
+						<textarea class="input100" id="experience" placeholder="Tell us a little bit about your experiences" required></textarea>
 						<span class="focus-input100"></span>
 					</div>
 			
 					<div class="wrap-input100 validate-input" data-validate = "Description is required">
-						<textarea class="input100" name="experience" placeholder="What motivates you" required></textarea>
+						<textarea class="input100" id="motivation" placeholder="What motivates you?" required></textarea>
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="container-contact100-form-btn">
-						<button class="contact100-form-btn">
-							Send
-						</button>
+						<input type="submit" class="contact100-form-btn" value="send"/>
+							
+						
                     </div>
                     
                     <div class="container-contact100-form-btn">
@@ -88,6 +88,6 @@
 
   gtag('config', 'UA-23581568-13');
 </script>
-
+<script src="js/application.js"></script>
 </body>
 </html>
