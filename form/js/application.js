@@ -4,20 +4,21 @@ $('#app-form').submit(function(e) {
 })
 
 
+console.log(window.name);
 function submitApp()    {
-    
+    let username = $("#name").val();
     let experience = $("#experience").val();
     let motivation = $("#motivation").val();
-   console.log("experience"+ experience + "motivation"+ motivation);
+    console.log(window.name);
 
     $.ajax({
-        url : 'http://127.0.0.1:3000/school/' + sessionStorage.getItem("schoolid") + '/user/' + sessionStorage.getItem("userid"), // La ressource ciblée
+        url : 'http://127.0.0.1:3000/school/' + sessionStorage.getItem("schoolid") + '/' + sessionStorage.getItem("userid"), // La ressource ciblée
         type : 'POST', // Le type de la requête HTTP.
 
         data : {
             experience:experience,
             motivation:motivation,
-           
+            user_name: username
         },
 
         success: function(data){

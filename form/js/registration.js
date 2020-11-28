@@ -20,7 +20,6 @@ function checkSchool()  {
     
             success: function(data){
                 sessionStorage.setItem("schoolid", data._id);
-                console.log(sessionStorage.getItem("schoolid"));
                 sessionStorage.setItem("schoolname", data.school_name);
                 sessionStorage.setItem("location", data.location);
                 signup();
@@ -48,6 +47,11 @@ function signup()    {
     let role = $("#role").val();
     let email =$("#email").val();
     let password = $("#pass").val();
+    let schoolid = sessionStorage.getItem("schoolid");
+
+    sessionStorage.setItem("usermail", email);
+    sessionStorage.setItem("role", role);
+    sessionStorage.setItem("username", lastname);
 
     $.ajax({
         url : 'http://127.0.0.1:3000/users/register', // La ressource ciblée
@@ -58,39 +62,36 @@ function signup()    {
             lastname: lastname,
             password: password,
             role: role,
-            school_id: sessionStorage.getItem("schoolid"),
+            school_id: schoolid,
         },
 
         success: function(data){
-            sessionStorage.setItem("userconnected", data.email);
             sessionStorage.setItem("userid", data._id);
-            sessionStorage.setItem("role", data.role);
-            sessionStorage.setItem("last", data.lastname);
-            sessionStorage.setItem("password", data.password);
+            if(role == "admin") {
+                $.ajax({
+                    url : 'http://127.0.0.1:3000/schools/' + sessionStorage.getItem("schoolid"), // La ressource ciblée
+                    type : 'PUT', // Le type de la requête HTTP.
+            
+                    data : {
+                        admin_id: sessionStorage.getItem("userid"),
+                    },
+                    success: function(data) {
+                        window.location.href = "dropProject.html";
+                    }, 
+                    error: function(e)  {
+                        console.log(e);
+                    }
+                })
+            } else {
+                window.location.href = "application.html";
+            }
         },
         error: function(e) {
             console.log(e);
         }
     });
 
-    if(role == "admin") {
-        $.ajax({
-            url : 'http://127.0.0.1:3000/schools/' + sessionStorage.getItem("schoolid"), // La ressource ciblée
-            type : 'PUT', // Le type de la requête HTTP.
     
-            data : {
-                admin_id: sessionStorage.getItem("userid"),
-            },
-            success: function(data) {
-                window.location.href = "dropProject.html";
-            }, 
-            error: function(e)  {
-                console.log(e);
-            }
-        })
-    } else {
-        window.location.href = "application.html";
-    }
 }
 
 

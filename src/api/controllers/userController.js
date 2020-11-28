@@ -104,7 +104,7 @@ exports.create_an_user = async (req, res) => {
 
 exports.login_an_user =  async (req, res) => {
     User.findOne({email: req.body.email}, (error, user) => {
-        if (error) {
+        if (error || !user) {
             res.status(500);
             console.log(error);
             res.json({
@@ -117,7 +117,9 @@ exports.login_an_user =  async (req, res) => {
             } else {
                 res.status(400);
                 console.log(error);
-                res.json({message: "Mot de passe ou email erroné"})
+                res.json({
+                    message: "Mot de passe ou email erroné"
+                })
             }
         }
     })
