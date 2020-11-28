@@ -22,7 +22,7 @@ function submitApp()    {
         },
 
         success: function(data){
-            alert("Your application has been sent succefully!")
+            window.location.href = "succeeded.html";
         },
         error: function(e) {
             console.log(e);
@@ -31,5 +31,31 @@ function submitApp()    {
         
     });
 }
+
+function myFunction()
+{
+    
+    $.ajax({
+    url : 'http://127.0.0.1:3000/schools/'+sessionStorage.getItem("schoolid"),
+    type : 'GET',
+
+      success : function(res){
+      
+
+       
+        document.getElementById("title").innerHTML = res.project_title;
+        document.getElementById("description").innerHTML = res.project_description;
+    },
+error: function(e) {
+    console.log(e);
+    alert("Wrong  !")
+}
+
+
+})
+}
+
+
+
 
 
