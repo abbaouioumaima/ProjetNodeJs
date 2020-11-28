@@ -18,7 +18,8 @@ function login()    {
         },
 
         success: function(data){
-            sessionStorage.setItem("userconnected", username);
+            sessionStorage.setItem("usermail", username);
+            sessionStorage.setItem("username", data.lastname);
             sessionStorage.setItem("schoolid",data.school_id);
             sessionStorage.setItem("userid", data._id);
             sessionStorage.setItem("role", data.role);

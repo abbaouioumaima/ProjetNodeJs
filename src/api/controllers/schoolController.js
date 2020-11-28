@@ -66,6 +66,7 @@ exports.get_a_school_by_name = (req, res) =>   {
     })
 }
 
+
 exports.update_a_school= (req, res) => {
     School.findByIdAndUpdate(req.params.school_id, req.body, {
         new: true
@@ -82,6 +83,24 @@ exports.update_a_school= (req, res) => {
         }
     })
 }
+
+exports.add_user_to_project= (req, res) => {
+    School.findById(req.params.school_id, (error, school) => {
+        if (error) {
+            res.status(500);
+            console.log(error);
+            res.json({
+                message: "Erreur serveur."
+            })
+        } else {
+            school.users_id.push(req.params.user_id);
+            school.save();
+            res.status(200);
+            res.json(school)
+        }
+    })
+}
+
 exports.delete_a_school = (req, res) => {
     School.findByIdAndRemove(req.params.school_id, (error) => {
         if (error) {
