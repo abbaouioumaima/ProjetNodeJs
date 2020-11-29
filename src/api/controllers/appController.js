@@ -1,6 +1,6 @@
 const App = require('../models/appModel');
 
-
+//list all apps
 exports.list_all_apps = (req, res) => {
     App.find({}, (error, apps) => {
         if (error) {
@@ -16,7 +16,7 @@ exports.list_all_apps = (req, res) => {
     })
 }
 
-
+//create an app
 exports.create_an_app = (req, res) => {
     let new_app = new App(req.body);
     new_app.school_id = req.params.school_id;
@@ -36,6 +36,7 @@ exports.create_an_app = (req, res) => {
     })
 }
 
+// list all applications from one school
 exports.list_apps_from_school = (req, res) =>   {
     App.find({school_id: req.params.school_id}, (error, apps) => {
         if (error) {
@@ -51,6 +52,7 @@ exports.list_apps_from_school = (req, res) =>   {
     })
 }
 
+// get an app from a school and an user
 exports.get_an_app = (req, res) =>  {
     App.find({
         school_id: req.params.school_id,

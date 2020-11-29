@@ -1,6 +1,6 @@
 const School = require('../models/schoolModel');
 
-
+//list all schools
 exports.list_all_schools = (req, res) => {
     School.find({}, (error, schools) => {
         if (error) {
@@ -18,7 +18,7 @@ exports.list_all_schools = (req, res) => {
 
 
 
-
+//create a school
 exports.create_a_school= (req, res) => {
     let new_school = new School(req.body);
 
@@ -36,6 +36,7 @@ exports.create_a_school= (req, res) => {
     })
 }
 
+//get a school by id 
 exports.get_a_school = (req, res) => {
     School.findById(req.params.school_id, (error, school) => {
         if (error) {
@@ -51,6 +52,7 @@ exports.get_a_school = (req, res) => {
     })
 }
 
+//get a school by name
 exports.get_a_school_by_name = (req, res) =>   {
     School.find({school_name: req.params.school_name}, (error, school) => {
         if (error) {
@@ -66,7 +68,7 @@ exports.get_a_school_by_name = (req, res) =>   {
     })
 }
 
-
+// update a school
 exports.update_a_school= (req, res) => {
     School.findByIdAndUpdate(req.params.school_id, req.body, {
         new: true
@@ -84,6 +86,7 @@ exports.update_a_school= (req, res) => {
     })
 }
 
+//add user to project
 exports.add_user_to_project= (req, res) => {
     School.findById(req.params.school_id, (error, school) => {
         if (error) {
@@ -101,6 +104,7 @@ exports.add_user_to_project= (req, res) => {
     })
 }
 
+//delete a school
 exports.delete_a_school = (req, res) => {
     School.findByIdAndRemove(req.params.school_id, (error) => {
         if (error) {

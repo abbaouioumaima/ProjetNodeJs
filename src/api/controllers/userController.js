@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const isemail = require('isemail');
 
+//list all users
 exports.list_all_users = (req, res) => {
     User.find({}, (error, users) => {
         if (error) {
@@ -18,7 +19,7 @@ exports.list_all_users = (req, res) => {
     })
 }
 
-
+//get an user
 exports.get_an_user = (req, res) =>  {
     User.findById(req.params.user_id, (error, user) => {
         if(error){
@@ -33,7 +34,7 @@ exports.get_an_user = (req, res) =>  {
     })
 }
 
-
+// update an user
 exports.update_a_user = async (req, res) => {
     if(req.body.password)   {
         const salt = await bcrypt.genSalt(10);
@@ -55,7 +56,7 @@ exports.update_a_user = async (req, res) => {
     })
 }
 
-
+//delete an user
 exports.delete_a_user = (req, res) => {
     User.findByIdAndDelete(req.params.user_id, (error, user) => {
       if(error){
@@ -71,6 +72,7 @@ exports.delete_a_user = (req, res) => {
   }
   
 
+  //create an user
 exports.create_an_user = async (req, res) => {
     if(isemail.validate(req.body.email)) {
         const salt = await bcrypt.genSalt(10);
@@ -102,6 +104,8 @@ exports.create_an_user = async (req, res) => {
     }
 }
 
+
+// login an user
 exports.login_an_user =  async (req, res) => {
     User.findOne({email: req.body.email}, (error, user) => {
         if (error || !user) {
@@ -125,6 +129,7 @@ exports.login_an_user =  async (req, res) => {
     })
 }
 
+// validate an application
 exports.validate_application = (req, res) => {
     User.findByIdAndUpdate(req.params.user_id, {registered: true}, {new: true}, (error, user) => {
         if(error)   {
